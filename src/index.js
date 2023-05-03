@@ -1,29 +1,9 @@
 import './style.scss';
+import { addNewTask, editTask, removeTask } from './utils.js';
 
-const data = [
-  {
-    description: 'Double-tap to edit',
-    completed: false,
-    index: 0,
-  },
-  {
-    description: "Drag 'n drop to reorder your list",
-    completed: false,
-    index: 1,
-  },
-  {
-    description: 'Manage all your lists in one place',
-    completed: true,
-    index: 2,
-  },
-  {
-    description: 'Resync to clear out the old',
-    completed: false,
-    index: 3,
-  },
-];
+let data = JSON.parse(localStorage.getItem('list')) || [];
 
-const listHead = `<ul>
+const listHead = `<ul class="list">
 <li class="item1">Today's To Do <i class="material-icons">sync</i></li>
 <li>
   <hr>
@@ -41,6 +21,7 @@ const listItem = (item) => `<li class="item5">
     <input class="value" type='text' value="${item.description}"/>
   </div>
   <i class="material-icons more">more_vert</i>
+  <i class="material-icons hide">delete</i>
 </li>
 <li><hr></li>`;
 
@@ -49,4 +30,62 @@ const listFooter = `</ul>
   <button type="button">Clear all completed</button>
 </div>`;
 
-document.querySelector('.content-1-1').innerHTML = listHead + data.map((item) => listItem(item)).join('') + listFooter;
+const display = () => {
+  document.querySelector('.content-1-1').innerHTML = listHead + data.map((item) => listItem(item)).join('') + listFooter;
+
+  document.querySelectorAll('.value').forEach((input, i) => {
+    input.onclick = (e) => {
+      const activeElement = document.querySelector('.active');
+
+      if (activeElement) {
+        const icons = [...activeElement.childNodes].filter((icon) => icon.innerHTML === 'more_vert' || icon.innerHTML === 'delete');
+
+        icons[0].classList.remove('hide');
+        icons[1].classList.add('hide');
+
+        activeElement.classList.remove('active');
+      }
+      e.target.parentElement.parentElement.classList.add('active');
+      const icons = [...e.target.parentElement.parentElement.childNodes].filter((icon) => icon.innerHTML === 'more_vert' || icon.innerHTML === 'delete');
+      icons[0].classList.add('hide');
+      icons[1].classList.remove('hide');
+
+      icons[1].onclick = () => {
+        if (!input.value) {
+          data = removeTask(i, data);
+
+          display();
+        }
+      };
+
+      e.target.onkeypress = (event) => {
+        if (event.key === 'Enter') {
+          e.target.parentElement.parentElement.classList.remove('active');
+          document.activeElement.blur();
+          icons[0].classList.remove('hide');
+          icons[1].classList.add('hide');
+
+          editTask(input, i, data);
+        }
+      };
+    };
+  });
+  const enter = document.querySelector('.enter');
+  enter.onkeypress = (e) => {
+    if (e.key === 'Enter') {
+      if (!enter.value) return;
+
+      addNewTask({
+        description: enter.value,
+        completed: false,
+        index: data.length,
+      }, data);
+
+      display();
+
+      enter.value = '';
+    }
+  };
+};
+
+display();

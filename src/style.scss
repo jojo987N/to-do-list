@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500&display=swap');
+
+$padding : 18px 18px;
+
+@mixin font-generic($font-style, $font-size, $font-weight, $word-spacing, $color, $font-family: "Roboto") {
+  font-style: $font-style;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  word-spacing: $word-spacing;
+  color: $color;
+  font-family: $font-family, sans-serif;
+}
+
+@for $i from 1 through 5 {
+
+  .item#{$i} {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $padding;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  grid-template-rows: 30vh minmax(30vh, auto) 30vh;
+  gap: 0;
+  margin: 0;
+  background: url(img/todolist-bg.png);
+
+  .content {
+    display: flex;
+    justify-content: center;
+
+    .content-1 {
+      padding: 10px;
+      width: 40%;
+
+      .content-1-1 {
+        box-shadow: 0 3px 10px #d9d9d9;
+
+        ul {
+          background: #fff;
+          margin: 0;
+          padding: 0;
+          list-style: none;
+
+          li {
+            &:first-of-type {
+              @include font-generic(normal, 15px, 400, 2px, hsl(0, 0%, 45%));
+            }
+
+            i {
+              &:hover {
+                color: hsl(0, 0%, 25%);
+                cursor: pointer;
+              }
+
+              color: hsl(0, 0%, 65%);
+              font-size: 18px;
+            }
+
+            .enter {
+              &::placeholder {
+                color: hsl(0, 0%, 30%);
+              }
+
+              width: 90%;
+              border: none;
+              outline: none;
+
+              @include font-generic(italic, 15px, 300, 2px, hsl(0, 0%, 15%));
+
+              opacity: 0.7;
+            }
+
+            .complete {
+              appearance: none;
+              height: 15px;
+              width: 15px;
+              border-radius: 2px;
+              cursor: pointer;
+              border: 2px solid hsl(0, 0%, 55%);
+
+              &:checked {
+                border: none;
+              }
+
+              &:checked::before {
+                content: "\002714";
+                display: flex;
+                justify-content: center;
+                margin-top: -10px;
+                color: hsl(240, 100%, 75%);
+                font-size: 20px;
+              }
+
+              &:focus {
+                border: none;
+              }
+
+              &:not(:checked) {
+                border: 2px solid hsl(0, 0%, 55%);
+              }
+            }
+
+            hr {
+              opacity: 0.5;
+              margin: 0;
+            }
+          }
+
+          .item3 {
+            .arrow-left {
+              font-size: 10px;
+            }
+          }
+
+          .item5 {
+            div {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              width: 100%;
+
+              .value {
+                width: 90%;
+                border: none;
+                outline: none;
+
+                @include font-generic(italic, 15px, 300, 2px, hsl(0, 0%, 15%));
+
+                opacity: 0.7;
+
+                @include font-generic(normal, 15px, 300, 2px, hsl(0, 0%, 15%));
+              }
+            }
+
+            .more {
+              color: hsl(0, 0%, 75%);
+
+              &:hover {
+                cursor: move;
+                color: hsl(0, 0%, 55%);
+              }
+            }
+          }
+        }
+
+        .button-container {
+          display: flex;
+          justify-content: center;
+
+          button {
+            font-family: "Poppins", sans-serif;
+            border: none;
+            margin: 0;
+            background: transparent;
+
+            @include font-generic(normal, 15px, 300, 2px, hsl(0, 0%, 55%));
+
+            padding: 20px;
+            cursor: pointer;
+
+            &:hover {
+              text-decoration: underline;
+              color: #404040;
+            }
+          }
+        }
+      }
+    }
+
+    .content-2 {
+      width: 30%;
+      min-height: 40vh;
+    }
+  }
+
+  .footer {
+    margin: 0;
+  }
+}
+
+.line {
+  text-decoration: line-through;
+}

@@ -24,7 +24,7 @@
 - [📝 License](#license)
 
 
-# 📖  To Do list: list structure
+# 📖  To Do list: add & remove
  <a name="about-project"></a>
 
 **To Do list: list structure** is a simple HTML list of To Do tasks that allows users to add/remove tasks in the list . We achieve that by using JavaScript objects and arrays. Built using webpack and served by a webpack dev server.We also dynamically modify the DOM and add basic events . 

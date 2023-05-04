@@ -51,11 +51,9 @@ const display = () => {
       icons[1].classList.remove('hide');
 
       icons[1].onclick = () => {
-        if (!input.value) {
-          data = removeTask(i, data);
+        data = removeTask(i, data);
 
-          display();
-        }
+        display();
       };
 
       e.target.onkeypress = (event) => {
@@ -78,7 +76,7 @@ const display = () => {
       addNewTask({
         description: enter.value,
         completed: false,
-        index: data.length,
+        index: data.length + 1,
       }, data);
 
       display();

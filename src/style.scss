@@ -131,6 +131,7 @@ body {
                 width: 90%;
                 border: none;
                 outline: none;
+                background: transparent;
 
                 @include font-generic(italic, 15px, 300, 2px, hsl(0, 0%, 15%));
 
@@ -188,4 +189,34 @@ body {
 
 .line {
   text-decoration: line-through;
+}
+
+.active {
+  animation: colorAnim 1s forwards;
+}
+
+.hide {
+  display: none;
+}
+
+.highlight {
+  background-color: yellow;
+}
+
+@keyframes colorAnim {
+  from {
+    // opacity: 0;
+    background: rgba(255, 179, 128, 0);
+
+    /* transform: rotate(0deg); */
+    // transform: translateX(-201px);
+  }
+
+  to {
+    // transform: translateX(0);
+    // opacity: 1;
+
+    /* transform: rotate(360deg); */
+    background: hsl(24, 100%, 90%);
+  }
 }

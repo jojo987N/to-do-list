@@ -189,6 +189,7 @@ body {
 
 .line {
   text-decoration: line-through;
+  color: hsl(0, 0%, 55%) !important;
 }
 
 .active {
@@ -201,6 +202,14 @@ body {
 
 .highlight {
   background-color: yellow;
+}
+
+.dropHover {
+  border: 5px solid red;
+}
+
+.dragged {
+  border: 5px solid green;
 }
 
 @keyframes colorAnim {

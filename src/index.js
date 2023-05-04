@@ -1,40 +1,63 @@
+import dragAndDrop from './modules/draganddrop.js';
+import Item from './modules/item.js';
+import List from './modules/list.js';
+import { clearAllCompleted, updateStatus } from './modules/status.js';
 import './style.scss';
 import { addNewTask, editTask, removeTask } from './utils.js';
 
 let data = JSON.parse(localStorage.getItem('list')) || [];
 
-const listHead = `<ul class="list">
-<li class="item1">Today's To Do <i class="material-icons">sync</i></li>
-<li>
-  <hr>
-</li>
-<li class="item3"><input class="enter" type="text" placeholder="Add to your list..."><i
-    class="material-icons arrow-left">subdirectory_arrow_left</i></li>
-<li>
-  <hr>
-</li>`;
-
-const listItem = (item) => `<li class="item5">
-  <div>
-    <input class="complete" type="checkbox" name="checkbox-checked" />
-    
-    <input class="value" type='text' value="${item.description}"/>
-  </div>
-  <i class="material-icons more">more_vert</i>
-  <i class="material-icons hide">delete</i>
-</li>
-<li><hr></li>`;
-
-const listFooter = `</ul>
-<div class="button-container">
-  <button type="button">Clear all completed</button>
-</div>`;
-
 const display = () => {
-  document.querySelector('.content-1-1').innerHTML = listHead + data.map((item) => listItem(item)).join('') + listFooter;
+  const list = new List();
 
+  data.map((item) => list.add(new Item(item).content));
+
+  document.querySelector('.content-1-1').innerHTML = list.body();
+
+  let dragged;
   document.querySelectorAll('.value').forEach((input, i) => {
+    const listItem = input.parentElement.parentElement;
+
+    listItem.ondragstart = (e) => {
+      dragged = listItem;
+      e.dataTransfer.setData('text', listItem.innerHTML);
+      listItem.classList.add('dragged');
+    };
+
+    listItem.ondragover = (e) => {
+      e.preventDefault();
+    };
+
+    listItem.ondragenter = () => {
+      listItem.classList.add('dropHover');
+    };
+
+    listItem.ondragleave = () => {
+      listItem.classList.remove('dropHover');
+    };
+
+    listItem.ondragend = () => {
+      listItem.classList.remove('dragged');
+    };
+
+    listItem.ondrop = (e) => {
+      e.preventDefault();
+
+      listItem.setAttribute('draggable', true);
+
+      data = dragAndDrop(data, dragged, listItem);
+
+      display();
+    };
+
+    const icons = [...input.parentElement.parentElement.childNodes].filter((icon) => icon.innerHTML === 'more_vert' || icon.innerHTML === 'delete');
+
+    icons[0].onmousedown = () => {
+      icons[0].parentElement.setAttribute('draggable', true);
+    };
     input.onclick = (e) => {
+      input.parentElement.parentElement.setAttribute('draggable', false);
+
       const activeElement = document.querySelector('.active');
 
       if (activeElement) {
@@ -49,6 +72,10 @@ const display = () => {
       const icons = [...e.target.parentElement.parentElement.childNodes].filter((icon) => icon.innerHTML === 'more_vert' || icon.innerHTML === 'delete');
       icons[0].classList.add('hide');
       icons[1].classList.remove('hide');
+
+      icons[0].addEventListener('onclick', (event) => {
+        event.parentElement.setAttribute('draggable', true);
+      });
 
       icons[1].onclick = () => {
         data = removeTask(i, data);
@@ -67,7 +94,15 @@ const display = () => {
         }
       };
     };
+
+    const checkbox = [...input.parentElement.children].filter((child) => child.className === 'complete')[0];
+
+    checkbox.onchange = (e) => {
+      data = updateStatus(e, i, data);
+      display();
+    };
   });
+
   const enter = document.querySelector('.enter');
   enter.onkeypress = (e) => {
     if (e.key === 'Enter') {
@@ -83,6 +118,13 @@ const display = () => {
 
       enter.value = '';
     }
+  };
+
+  const button = document.querySelector('.button');
+  button.onclick = () => {
+    data = clearAllCompleted(data);
+
+    display();
   };
 };
 

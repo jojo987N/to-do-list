@@ -60,7 +60,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Coming soon
+- [Live Demo Link](https://jojo987n.github.io/to-do-list/dist/)
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
@@ -102,7 +102,7 @@ Open index.html using live server extension.
 
 ### Deployment
 
-> Coming soon
+- [Live Demo Link](https://jojo987n.github.io/to-do-list/dist/)
 
 ## 👥 Authors <a name="getting-started"></a>
 

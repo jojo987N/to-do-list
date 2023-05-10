@@ -1,7 +1,11 @@
+import { display } from ".";
+
 export const addNewTask = (task, data) => {
-  data.push(task);
+   data.push(task);
 
   localStorage.setItem('list', JSON.stringify(data));
+
+  display()
 };
 
 export const removeTask = (i, data) => {

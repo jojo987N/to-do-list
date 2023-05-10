@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1683729258910" clover="3.2.0">
+  <project timestamp="1683729258911" name="All files">
+    <metrics statements="19" coveredstatements="8" conditionals="4" coveredconditionals="1" methods="11" coveredmethods="4" elements="34" coveredelements="13" complexity="0" loc="19" ncloc="19" packages="2" files="2" classes="2"/>
+    <package name="src">
+      <metrics statements="14" coveredstatements="5" conditionals="2" coveredconditionals="0" methods="6" coveredmethods="1"/>
+      <file name="utils.js" path="/home/nass/Documents/microverse/to-do-list/src/utils.js">
+        <metrics statements="14" coveredstatements="5" conditionals="2" coveredconditionals="0" methods="6" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="5" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.__test__">
+      <metrics statements="5" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="5" coveredmethods="3"/>
+      <file name="localStorageMock.js" path="/home/nass/Documents/microverse/to-do-list/src/__test__/localStorageMock.js">
+        <metrics statements="5" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="5" coveredmethods="3"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="11" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="15" count="5" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

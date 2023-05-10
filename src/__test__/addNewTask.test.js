@@ -1,13 +1,18 @@
+import { addNewTask } from "../utils";
 import { LocalStorageMock } from "./localStorageMock";
-import { addNewTask } from "../src/utils";
 
 global.localStorage = new LocalStorageMock;
 
+
+
 describe("Add item function", () => {
 
+    let data;
+    let task;
+
     it("add item into data", () => {
-        let data = [];
-        const task = {
+        data = [];
+        task = {
             description: "task 1",
             completed: false,
             index: 1,
@@ -20,8 +25,8 @@ describe("Add item function", () => {
     })
 
     it("add multiple items into data", () => {
-        let data = [];
-        const task = {
+        data = [];
+        task = {
             description: "task 1",
             completed: false,
             index: 1,
@@ -37,8 +42,8 @@ describe("Add item function", () => {
 
     it("data is added into local storage", () => {
 
-        let data = [];
-        const task = {
+        data = [];
+        task = {
             description: "task 1",
             completed: false,
             index: 1,

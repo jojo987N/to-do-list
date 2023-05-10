@@ -2,12 +2,12 @@ import dragAndDrop from './modules/draganddrop.js';
 import Item from './modules/item.js';
 import List from './modules/list.js';
 import { clearAllCompleted, updateStatus } from './modules/status.js';
-import './style.scss';
+import './style.css';
 import { addNewTask, editTask, removeTask } from './utils.js';
 
 let data = JSON.parse(localStorage.getItem('list')) || [];
 
-const display = () => {
+export const display = () => {
   const list = new List();
 
   data.map((item) => list.add(new Item(item).content));

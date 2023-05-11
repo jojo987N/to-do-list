@@ -1,6 +1,6 @@
 export default class Item {
   constructor(item) {
-    this.content = `<li class="item5" draggable="false" id="${item.index}">
+    this.content = `<li class="item5 item" draggable="false" id="${item.index}">
             <div>
                 <input class="complete" type="checkbox" name="checkbox-checked" ${!item.completed || 'checked'}/>
                 

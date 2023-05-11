@@ -5,7 +5,7 @@ import { clearAllCompleted, updateStatus } from './modules/status.js';
 import './style.scss';
 import { addNewTask, editTask, removeTask } from './utils.js';
 
-let data = JSON.parse(localStorage.getItem('list')) || [];
+global.data = JSON.parse(localStorage.getItem('list')) || [];
 
 const display = () => {
   const list = new List();
@@ -78,7 +78,7 @@ const display = () => {
       });
 
       icons[1].onclick = () => {
-        data = removeTask(i, data);
+        data = removeTask(i);
 
         display();
       };
@@ -112,7 +112,7 @@ const display = () => {
         description: enter.value,
         completed: false,
         index: data.length + 1,
-      }, data);
+      });
 
       display();
 

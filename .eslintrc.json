@@ -21,5 +21,8 @@
     "ignorePatterns": [
       "dist/",
       "build/"
-    ]
+    ],
+    "globals": {
+      "data": "writable"
+  }
   }

@@ -1,10 +1,10 @@
-export const addNewTask = (task, data) => {
+export const addNewTask = (task) => {
   data.push(task);
 
   localStorage.setItem('list', JSON.stringify(data));
 };
 
-export const removeTask = (i, data) => {
+export const removeTask = (i) => {
   document.querySelector('.active').remove();
 
   data = data.filter((item) => item.index !== i + 1)

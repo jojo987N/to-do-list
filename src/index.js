@@ -78,7 +78,7 @@ const display = () => {
       });
 
       icons[1].onclick = () => {
-        data = removeTask(i, data);
+        data = removeTask(i);
 
         display();
       };

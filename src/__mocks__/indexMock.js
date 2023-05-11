@@ -22,7 +22,35 @@ const display = () => {
    
 
   document.querySelector('.content-1-1').innerHTML = list.body();
-
+  document.querySelectorAll('.value').forEach( (input, i) => {
+  
+    input.onclick = (e) => {
+       
+        const activeElement = document.querySelector('.active');
+        if (activeElement) {
+            const icons = [...activeElement.childNodes].filter((icon) => icon.innerHTML === 'more_vert' || icon.innerHTML === 'delete');
+   
+            icons[0].classList.remove('hide');
+            icons[1].classList.add('hide');
+   
+            activeElement.classList.remove('active');
+          }
+        e.target.parentElement.parentElement.classList.add('active');
+        const icons = [...e.target.parentElement.parentElement.childNodes].filter((icon) => icon.innerHTML === 'more_vert' || icon.innerHTML === 'delete');
+        icons[0].classList.add('hide');
+        icons[1].classList.remove('hide');
+        icons[0].addEventListener('onclick', (event) => {
+        event.parentElement.setAttribute('draggable', true);
+        });
+        icons[1].onclick = () => {
+            data = removeTask(i);
+   
+            display();
+        };
+    }
+  })
+ 
+ 
 //   console.log(document.querySelector('.item5'))
 };
 

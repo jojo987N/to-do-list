@@ -20,6 +20,5 @@ describe( "Remove first item function", () => {
         display()
       
    })
-   describe
 
 })

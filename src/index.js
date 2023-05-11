@@ -2,10 +2,10 @@ import dragAndDrop from './modules/draganddrop.js';
 import Item from './modules/item.js';
 import List from './modules/list.js';
 import { clearAllCompleted, updateStatus } from './modules/status.js';
-import './style.css';
+import './style.scss';
 import { addNewTask, editTask, removeTask } from './utils.js';
 
-let data = JSON.parse(localStorage.getItem('list')) || [];
+global.data = JSON.parse(localStorage.getItem('list')) || [];
 
 export const display = () => {
   const list = new List();
@@ -112,7 +112,7 @@ export const display = () => {
         description: enter.value,
         completed: false,
         index: data.length + 1,
-      }, data);
+      });
 
       display();
 

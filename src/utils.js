@@ -1,5 +1,5 @@
-export const addNewTask = (task, data) => {
-   data.push(task);
+export const addNewTask = (task) => {
+  data.push(task);
 
   localStorage.setItem('list', JSON.stringify(data));
 };

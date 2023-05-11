@@ -1,60 +1,60 @@
-import { addNewTask } from "../utils";
-import { LocalStorageMock } from "./localStorageMock";
+import { addNewTask } from '../utils.js';
+import LocalStorageMock from '../__mocks__/localStorageMock.js';
+import display from '../__mocks__/indexMock.js';
 
-global.localStorage = new LocalStorageMock;
+global.localStorage = new LocalStorageMock();
 
+// global.data = [1]
 
+describe('Add item function', () => {
+  let task;
 
-describe("Add item function", () => {
+  it('add item and display into the dom', () => {
+    // data = [];
+    task = {
+      description: 'task 1',
+      completed: false,
+      index: 1,
+    };
 
-    let data;
-    let task;
+    addNewTask(task, data);
 
-    it("add item into data", () => {
-        data = [];
-        task = {
-            description: "task 1",
-            completed: false,
-            index: 1,
-        }
+    expect(data).toEqual([task]);
 
-        addNewTask(task, data)
+    display();
+  });
 
-        expect(data).toEqual([task])
+  it('display item into the Dom', () => {
 
-    })
+    // display
 
-    it("add multiple items into data", () => {
-        data = [];
-        task = {
-            description: "task 1",
-            completed: false,
-            index: 1,
-        }
+  });
 
-        addNewTask(task, data)
-        addNewTask(task, data)
-        addNewTask(task, data)
+  it('add multiple items into data', () => {
+    data = [];
+    task = {
+      description: 'task 1',
+      completed: false,
+      index: 1,
+    };
 
-        expect(data).toEqual([task, task, task])
+    addNewTask(task, data);
+    addNewTask(task, data);
+    addNewTask(task, data);
 
-    })
+    expect(data).toEqual([task, task, task]);
+  });
 
-    it("data is added into local storage", () => {
+  it('data is added into local storage', () => {
+    data = [];
+    task = {
+      description: 'task 1',
+      completed: false,
+      index: 1,
+    };
 
-        data = [];
-        task = {
-            description: "task 1",
-            completed: false,
-            index: 1,
-        }
+    addNewTask(task, data);
 
-
-        addNewTask(task, data)
-
-        expect(JSON.parse(localStorage.getItem('list'))).toEqual([task])
-
-    })
-
-})
-
+    expect(JSON.parse(localStorage.getItem('list'))).toEqual([task]);
+  });
+});

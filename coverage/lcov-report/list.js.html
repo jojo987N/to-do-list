@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/utils.js</title>
+    <title>Code coverage report for list.js</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../prettify.css" />
-    <link rel="stylesheet" href="../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
+    <link rel="stylesheet" href="prettify.css" />
+    <link rel="stylesheet" href="base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../sort-arrow-sprite.png);
+            background-image: url(sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">src</a> utils.js</h1>
+        <h1><a href="index.html">All files</a> list.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/15</span>
+                <span class='fraction'>0/5</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
-                <span class="quiet">Branches</span>
-                <span class='fraction'>0/2</span>
-            </div>
-        
-            
-            <div class='fl pad1y space-right2'>
-                <span class="strong">16.66% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/6</span>
+                <span class='fraction'>0/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">35.71% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/14</span>
+                <span class='fraction'>0/5</span>
             </div>
         
             
@@ -86,69 +86,78 @@
 <a name='L21'></a><a href='#L21'>21</a>
 <a name='L22'></a><a href='#L22'>22</a>
 <a name='L23'></a><a href='#L23'>23</a>
-<a name='L24'></a><a href='#L24'>24</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export const addNewTask = (task) =&gt; {
-  data.push(task);
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export default class List {
+<span class="fstat-no" title="function not covered" >  co</span>nstructor() {
+<span class="cstat-no" title="statement not covered" >    this.header = `&lt;ul class="list"&gt;</span>
+            &lt;li class="item1" draggagle="true"&gt;Today's To Do &lt;i class="material-icons"&gt;sync&lt;/i&gt;&lt;/li&gt;
+            &lt;li&gt;
+                &lt;hr&gt;
+            &lt;/li&gt;
+            &lt;li class="item3"&gt;&lt;input class="enter" type="text" placeholder="Add to your list..."&gt;&lt;i
+                class="material-icons arrow-left"&gt;subdirectory_arrow_left&lt;/i&gt;&lt;/li&gt;
+            &lt;li&gt;
+                &lt;hr&gt;
+            &lt;/li&gt;`;
+<span class="cstat-no" title="statement not covered" >    this.content = [];</span>
+<span class="cstat-no" title="statement not covered" >    this.footer = `&lt;/ul&gt;</span>
+            &lt;div class="button-container"&gt;
+            &lt;button class="button" type="button"&gt;Clear all completed&lt;/button&gt;
+            &lt;/div&gt;`;
+  }
 &nbsp;
-  localStorage.setItem('list', JSON.stringify(data));
-};
+<span class="fstat-no" title="function not covered" >  ad</span>d(item) {
+<span class="cstat-no" title="statement not covered" >    this.content.push(item);</span>
+  }
 &nbsp;
-export const removeTask = <span class="fstat-no" title="function not covered" >(i</span>, data) =&gt; {
-<span class="cstat-no" title="statement not covered" >  document.querySelector('.active').remove();</span>
-&nbsp;
-<span class="cstat-no" title="statement not covered" >  data = data.filter(<span class="fstat-no" title="function not covered" >(i</span>tem) =&gt; <span class="cstat-no" title="statement not covered" >item.index !== i + 1)</span></span>
-    .map(<span class="fstat-no" title="function not covered" >(i</span>tem, index) =&gt; (<span class="cstat-no" title="statement not covered" >{ ...item, index: index + 1 })</span>);
-&nbsp;
-<span class="cstat-no" title="statement not covered" >  localStorage.setItem('list', JSON.stringify(data));</span>
-&nbsp;
-<span class="cstat-no" title="statement not covered" >  return data;</span>
-};
-&nbsp;
-export const editTask = <span class="fstat-no" title="function not covered" >(e</span>lement, i, data) =&gt; {
-<span class="cstat-no" title="statement not covered" >  data = data</span>
-    .map(<span class="fstat-no" title="function not covered" >(i</span>tem) =&gt; (<span class="cstat-no" title="statement not covered" >item.index === i + 1 ? { ...item, description: element.value } : item)</span>);
-<span class="cstat-no" title="statement not covered" >  localStorage.setItem('list', JSON.stringify(data));</span>
-<span class="cstat-no" title="statement not covered" >  return data;</span>
-};
-&nbsp;</pre></td></tr></table></pre>
+<span class="fstat-no" title="function not covered" >  bo</span>dy() {
+<span class="cstat-no" title="statement not covered" >    return this.header + this.content.join('') + this.footer;</span>
+  }
+}</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-05-11T04:34:00.060Z
+                at 2023-05-11T04:32:37.618Z
             </div>
-        <script src="../prettify.js"></script>
+        <script src="prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../sorter.js"></script>
-        <script src="../block-navigation.js"></script>
+        <script src="sorter.js"></script>
+        <script src="block-navigation.js"></script>
     </body>
 </html>
     

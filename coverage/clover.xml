@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1683779640149" clover="3.2.0">
-  <project timestamp="1683779640156" name="All files">
+<coverage generated="1683782576694" clover="3.2.0">
+  <project timestamp="1683782576694" name="All files">
     <metrics statements="20" coveredstatements="11" conditionals="6" coveredconditionals="2" methods="10" coveredmethods="5" elements="36" coveredelements="18" complexity="0" loc="20" ncloc="20" packages="2" files="3" classes="3"/>
     <package name="src">
       <metrics statements="14" coveredstatements="5" conditionals="2" coveredconditionals="0" methods="6" coveredmethods="1"/>
       <file name="utils.js" path="/home/nass/Documents/microverse/to-do-list/src/utils.js">
         <metrics statements="14" coveredstatements="5" conditionals="2" coveredconditionals="0" methods="6" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
-        <line num="2" count="5" type="stmt"/>
-        <line num="4" count="5" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
         <line num="10" count="0" type="stmt"/>

@@ -6,7 +6,6 @@ import LocalStorageMock from './localStorageMock.js';
 
 const dom = new JSDOM();
 global.document = dom.window.document;
-global.window = dom.window;
 
 global.localStorage = new LocalStorageMock();
 

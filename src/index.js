@@ -7,7 +7,7 @@ import { addNewTask, editTask, removeTask } from './utils.js';
 
 global.data = JSON.parse(localStorage.getItem('list')) || [];
 
-export const display = () => {
+const display = () => {
   const list = new List();
 
   data.map((item) => list.add(new Item(item).content));

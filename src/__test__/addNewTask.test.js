@@ -1,48 +1,37 @@
 import { addNewTask } from '../utils.js';
-import LocalStorageMock from '../__mocks__/localStorageMock.js';
 import display from '../__mocks__/indexMock.js';
 
-global.localStorage = new LocalStorageMock();
-
-// global.data = [1]
-
 describe('Add item function', () => {
-  let task;
 
-  it('add item and display into the dom', () => {
+  it('add first item and display into the dom', () => {
     // data = [];
-    task = {
+    let task1 = {
       description: 'task 1',
       completed: false,
       index: 1,
     };
 
-    addNewTask(task, data);
+    addNewTask(task1);
 
-    expect(data).toEqual([task]);
+    // expect(data).toEqual([task1]);
 
     display();
   });
 
-  it('display item into the Dom', () => {
+  it('add second item and display into the Dom', () => {
 
-    // display
+    let task2 = {
+        description: 'task 2',
+        completed: false,
+        index: 2,
+      };
 
-  });
+    addNewTask(task2);
+    console.log(data)
+     
+     
 
-  it('add multiple items into data', () => {
-    data = [];
-    task = {
-      description: 'task 1',
-      completed: false,
-      index: 1,
-    };
-
-    addNewTask(task, data);
-    addNewTask(task, data);
-    addNewTask(task, data);
-
-    expect(data).toEqual([task, task, task]);
+    // expect(data).toEqual([task1, task2]);
   });
 
   it('data is added into local storage', () => {

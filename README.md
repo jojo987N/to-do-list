@@ -1,5 +1,5 @@
-<img src="src/img/todolist1.gif" alt="Todo list" style=""/>
-<img src="src/img/coverage.png" alt="Coverage" style=""/>
+<p align="center"><img src="src/img/todolist1.gif" alt="Todo list" style="width: 70%"/>
+<img src="src/img/coverage.png" alt="Coverage" style=""/></p>
 
 # 📗 Table of Contents
 

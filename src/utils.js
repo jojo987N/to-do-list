@@ -16,7 +16,6 @@ export const removeTask = (i) => {
 };
 
 export const editTask = (element) => {
-
   data = data
     .map((item) => (item.index === parseInt(element.parentElement.parentElement.id, 10) ? { ...item, description: element.value } : item));
   localStorage.setItem('list', JSON.stringify(data));

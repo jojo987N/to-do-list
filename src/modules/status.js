@@ -1,13 +1,13 @@
-export const updateStatus = (e, i, data) => {
+export const updateStatus = (element) => {
   data = data
-    .map((item) => (item.index === i + 1 ? { ...item, completed: e.target.checked } : item));
+    .map((item) => (item.index === parseInt(element.parentElement.parentElement.id, 10) ? { ...item, completed: element.checked } : item));
 
   localStorage.setItem('list', JSON.stringify(data));
 
   return data;
 };
 
-export const clearAllCompleted = (data) => {
+export const clearAllCompleted = () => {
   data = data
     .filter((item) => !item.completed).map((item, index) => ({ ...item, index: index + 1 }));
 

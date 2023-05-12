@@ -13,6 +13,7 @@ global.data = JSON.parse(localStorage.getItem('list')) || [];
 
 const display = () => {
 //   console.log(data);
+
   document.body.innerHTML = ContentMock.render();
 
   const list = new List();
@@ -20,6 +21,7 @@ const display = () => {
   data.map((item) => list.add(new Item(item).content));
 
   document.querySelector('.content-1-1').innerHTML = list.body();
+
   document.querySelectorAll('.value').forEach((input) => {
     input.onclick = (e) => {
       const activeElement = document.querySelector('.active');

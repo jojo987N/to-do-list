@@ -90,7 +90,7 @@ const display = () => {
           icons[0].classList.remove('hide');
           icons[1].classList.add('hide');
 
-          editTask(input, i, data);
+          editTask(input, i);
         }
       };
     };
@@ -98,7 +98,7 @@ const display = () => {
     const checkbox = [...input.parentElement.children].filter((child) => child.className === 'complete')[0];
 
     checkbox.onchange = (e) => {
-      data = updateStatus(e, i, data);
+      data = updateStatus(e.target);
       display();
     };
   });
@@ -122,7 +122,7 @@ const display = () => {
 
   const button = document.querySelector('.button');
   button.onclick = () => {
-    data = clearAllCompleted(data);
+    data = clearAllCompleted();
 
     display();
   };

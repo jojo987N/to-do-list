@@ -1,67 +1,49 @@
-import { addNewTask, editTask } from "../utils";
+import { addNewTask } from '../utils.js';
 import display from '../__mocks__/indexMock.js';
-import { updateStatus } from "../modules/status";
+import { updateStatus } from '../modules/status.js';
 
-describe("Update item status function", () => {
+describe('Update item status function', () => {
+  it('Update unique item status and check Dom', () => {
+    const task1 = {
+      description: 'task 1',
+      completed: false,
+      index: 1,
+    };
 
-    it("Update unique item status and check Dom", () => {
+    addNewTask(task1);
 
-        const task1 = {
-            description: 'task 1',
-            completed: false,
-            index: 1,
-          };
-      
-        addNewTask(task1);
-    
-        display();
+    display();
 
-        const input = document.querySelector('.complete');
-        
-        // console.log(input.value)
-        // input.click();
-        
-        input.checked = true
+    const input = document.querySelector('.complete');
 
-        updateStatus(input)
+    // console.log(input.value)
+    // input.click();
 
-        display()
+    input.checked = true;
 
-        expect(document.querySelector('.complete').checked).toBe(true)
+    updateStatus(input);
 
+    display();
 
-    })
+    expect(document.querySelector('.complete').checked).toBe(true);
+  });
 
-    it("Update one item among 10 and check Dom", () => {
-
-        [...Array(10).keys()].map((i) => i + 1).forEach((v) => addNewTask(
-            {
-              description: `task ${v}`,
-              completed: false,
-              index: v + 1,
-            },
-          ));
-    
-        display();
-
-        const input = document.querySelectorAll('.value');
-        
-        // input[8].click();
-        
-        input[8].value = "update task 1"
-
-        editTask(input[8])
-
-        console.log(input[8].parentElement.parentElement.id)
-
-        display()
-
-         expect(document.querySelectorAll('.value')[8].value).toBe("update task 1")
-
-
-    })
-
-    it('Check if description is saved into local storage', () => {
-        expect(JSON.parse(localStorage.getItem('list'))[8].description).toBe("update task 1");
-      });
-})
+  it('Update one item status among 10 and check Dom', () => {
+    [...Array(10).keys()].map((i) => i + 1).forEach((v) => addNewTask(
+      {
+        description: `task ${v}`,
+        completed: false,
+        index: v + 1,
+      },
+    ));
+    display();
+    const input = document.querySelectorAll('.complete');
+    input[8].checked = true;
+    updateStatus(input[8]);
+    display();
+    expect(document.querySelectorAll('.complete')[8].checked).toBe(true);
+  });
+  it('Check if status is saved into local storage', () => {
+    expect(JSON.parse(localStorage.getItem('list'))[8].completed).toBe(true);
+  });
+});

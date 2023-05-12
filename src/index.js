@@ -122,7 +122,7 @@ const display = () => {
 
   const button = document.querySelector('.button');
   button.onclick = () => {
-    data = clearAllCompleted(data);
+    data = clearAllCompleted();
 
     display();
   };

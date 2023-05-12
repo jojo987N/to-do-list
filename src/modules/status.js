@@ -7,7 +7,7 @@ export const updateStatus = (element) => {
   return data;
 };
 
-export const clearAllCompleted = (data) => {
+export const clearAllCompleted = () => {
   data = data
     .filter((item) => !item.completed).map((item, index) => ({ ...item, index: index + 1 }));
 

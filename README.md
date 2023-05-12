@@ -1,3 +1,6 @@
+<img src="src/img/todolist1.gif" alt="Todo list" style=""/>
+<img src="src/img/coverage.png" alt="Coverage" style=""/>
+
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)

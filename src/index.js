@@ -98,7 +98,7 @@ const display = () => {
     const checkbox = [...input.parentElement.children].filter((child) => child.className === 'complete')[0];
 
     checkbox.onchange = (e) => {
-      data = updateStatus(e, i, data);
+      data = updateStatus(e.target);
       display();
     };
   });

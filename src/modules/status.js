@@ -1,6 +1,6 @@
-export const updateStatus = (e, i, data) => {
+export const updateStatus = (element) => {
   data = data
-    .map((item) => (item.index === i + 1 ? { ...item, completed: e.target.checked } : item));
+    .map((item) => (item.index === parseInt(element.parentElement.parentElement.id, 10) ? { ...item, completed: element.checked } : item));
 
   localStorage.setItem('list', JSON.stringify(data));
 
